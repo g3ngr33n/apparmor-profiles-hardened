@@ -31,13 +31,17 @@ This profile was made with security/privacy in mind, it does :
 * Denied access to your graphics gpu, memory usage and other hardware ressources of your machine
 
 
+
 Consider to add the following hardening project for more security 
 
+
 * [Simple sandbox](https://wiki.gentoo.org/wiki/Simple_sandbox)
-* [Firefox](configuration hardening : https://github.com/pyllyukko/user.js/)
+* [Firefox configuration hardening](https://github.com/pyllyukko/user.js/)
 * [uMatrix](https://github.com/gorhill/uMatrix )
 
 *Firefox will not start if no profile are already available (.mozilla/firefox .cache/mozilla ...), run first firefox with apparmor disabled to create the basic directory / configuration file / cache... required.*
+
+
 
 ## Torbrowser
 
@@ -48,6 +52,8 @@ Consider to set Safest level in the Security settings of the torbutton or set ja
 
 *Torbrowser will not start if no profile are already available (.mozilla/torbrowser .cache/mozilla ...), run first torbrowser with apparmor disabled to create the basic directory / configuration file / cache... required.*
 
+
+
 ## Keepassx
 
 - Network access disabled 
@@ -56,19 +62,23 @@ Consider to set Safest level in the Security settings of the torbutton or set ja
 
 *Small issue, When you select Open database, the dialog will show your currrent directory / home as empty, simply enter in the input field "File name" your database name to open it.*
 
+
+
 # Keep in mind
 
-As apparmor is a great security module, It's doesn't make your system bullet proof against nasty exploit that will compromise the Linux kernel, fortunatelly those are rare ###### (publicly at least)
+As apparmor is a great security module but It doesn't make your system bullet proof against nasty exploit that will compromise the Linux kernel, fortunatelly those are rare ######(publicly at least)
 
 Security is vast and complex subject, where every thing you read aren't always as good as they sound, however, in addition of those profile, if you didn't do it already, make a simple sandbox 
-as describe here :[Simple sandbox](https://wiki.gentoo.org/wiki/Simple_sandbox), for each appplication.
+as describe here [Simple sandbox](https://wiki.gentoo.org/wiki/Simple_sandbox), for each appplication.
 
 It took 1 minute to setup, it is not a Gentoo feature. It will work out of the box in your Linux system.
+
 
 # Contribution welcome
 
 If you feel to share, make a PR ! I will as much as I can take in consideration any request or advise, if you want to convert those profile for your distribution, please do ! 
  If you need help, have question or an issue with those profiles, open an issue on this git.
+
 
 # Documentation work in progress
 
