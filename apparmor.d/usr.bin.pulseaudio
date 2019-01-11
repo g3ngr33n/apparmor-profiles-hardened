@@ -1,0 +1,82 @@
+# Apparmor 2.13.1 -  Copyright (C) 2009-2018 Canonical Ltd.
+#
+# Hardened profile for pulseaudio
+
+#include <tunables/global>
+
+# Path to the binary
+/usr/bin/pulseaudio {
+
+	# Basic deny
+
+	deny /usr/** w,
+	deny /etc/** w,
+	deny /opt/** rw,
+	deny /boot/** rw,
+
+	# Permisive pulseaudio accessover those devices to be able to forward the sound from pcm card to hdmi output, without udev.
+
+	/dev/irandom r,
+	/dev/random r,
+	/dev/snd/control* rw,
+	/dev/snd/pcm* rw,
+
+	# /sys
+	
+	/sys/devices/virtual/dmi/id/* r,
+
+	# tmp
+
+   owner /tmp/pulse-*/* rwk,
+
+   # Restrict access to the network
+
+   deny network stream,
+   deny network raw,
+
+   # /etc conf
+
+	/etc/pulse/** r,
+	/etc/asound.conf r,
+	/etc/ld-musl-x86_64.path r,
+
+
+	# /lib
+
+	/lib/ld-musl-x86_64* rm,
+	/lib/libuuid* rm,
+	/lib/libcap* rm,
+
+	# /usr/lib
+
+	/usr/lib/pulseaudio/** rm,
+	/usr/lib/pulse*/* rm,
+	/usr/lib/pulse*/modules/* rm,
+	/usr/lib/libpulse* rm,
+	/usr/lib/libltdl* rm,
+	/usr/lib/libasound* rm,
+	/usr/lib/alsa-lib/* rm,
+	/usr/lib/libX11* rm,
+	/usr/lib/libxcb* rm,
+	/usr/lib/libICE* rm,
+	/usr/lib/libSM* rm,
+	/usr/lib/libXtst* rm,
+	/usr/lib/libsndfile* rm,
+	/usr/lib/libspeexdsp* rm,
+	/usr/lib/libasyncns* rm,
+	/usr/lib/libXau* rm,
+	/usr/lib/libXdmcp* rm,
+	/usr/lib/libXext* rm,
+	
+	# /usr/share
+
+	/usr/share/alsa/alsa.conf r,
+
+	# Pulse audio specific config files 
+
+	owner @{HOME}/.pulse-cookie rwk,
+	owner @{HOME}/.pulse/* rwk,
+	owner @{HOME}/.config/** rw, # needed to create the pulse directory
+	owner @{HOME}/.config/pulse/** k,
+      
+}

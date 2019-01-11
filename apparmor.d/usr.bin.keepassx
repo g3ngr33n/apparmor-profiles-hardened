@@ -19,7 +19,6 @@
   # Deny network access
 
   deny network,
-  deny network inet stream,
   deny network raw,
 
   # /etc
@@ -80,18 +79,20 @@
   /usr/lib/gcc/x86_64-gentoo-linux-musl/7.3.0/libgcc_s* rm,
 
   # Specific lib for Qt5
+
   /usr/lib/qt5/** r,
-  /usr/lib/qt5/plugins/bearer/libqgenericbearer.so rm,
-  /usr/lib/qt5/plugins/generic/libqlibinputplugin.so rm,
-  /usr/lib/qt5/plugins/imageformats/libqgif.so rm,
-  /usr/lib/qt5/plugins/imageformats/libqico.so rm,
-  /usr/lib/qt5/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so rm,
-  /usr/lib/qt5/plugins/platforms/libqminimal.so rm,
-  /usr/lib/qt5/plugins/platforms/libqoffscreen.so rm,
-  /usr/lib/qt5/plugins/platforms/libqxcb.so rm,
-  /usr/lib/qt5/plugins/xcbglintegrations/libqxcb-egl-integration.so rm,
+  /usr/lib/qt5/plugins/bearer/libqgenericbearer.so m,
+  /usr/lib/qt5/plugins/generic/libqlibinputplugin.so m,
+  /usr/lib/qt5/plugins/imageformats/libqgif.so m,
+  /usr/lib/qt5/plugins/imageformats/libqico.so m,
+  /usr/lib/qt5/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so m,
+  /usr/lib/qt5/plugins/platforms/libqminimal.so m,
+  /usr/lib/qt5/plugins/platforms/libqoffscreen.so m,
+  /usr/lib/qt5/plugins/platforms/libqxcb.so m,
+  /usr/lib/qt5/plugins/xcbglintegrations/libqxcb-egl-integration.so m,
 
  # /usr/share - Font / Translate and related 
+
  /usr/share/fonts/** r,
  /usr/share/icons/hicolor/** r,
  /usr/share/mime/mime.cache r,
@@ -107,10 +108,12 @@
  # /var
  /var/cache/fontconfig/* r,
 
- ## Basic user files 
+ # Basic user files 
+
  owner @{HOME}/.Xauthority r,
 
  # Specific rules for keepassx
+
  owner @{HOME}/.config/#{,0-9}* rwkl,
  owner @{HOME}/.config/QtProject.{conf,conf.lock,conf.*} rwkl,
  owner @{HOME}/.config/keepassx/* rwkl,

@@ -14,9 +14,19 @@
   deny /opt/** rw,
   deny /boot/** rw,
 
+  # /dev
+
+   /dev/urandom r,
+   /dev/shm/org.chromium.* rw, # This need confirmation
+
+   # /sys
+
+   /sys/devices/**/uevent r,
+
   # ipv4 only
 
   network inet stream,
+  deny network inet6 stream, # I haven't ipv6, including in my kernel config. Feel free to allow if you have any need of it
 
   # /etc conf
 
@@ -33,25 +43,6 @@
   /etc/timezone r,
   /etc/ld.so.conf r,
   /etc/gtk-3.0/settings.ini r,
-
-  # /proc conf
-
-  @{PROC}/@{pid}/cmdline r,
-  @{PROC}/@{pid}/mountinfo r,
-  @{PROC}/@{pid}/stat r,
-  @{PROC}/@{pid}/task/@{pid}/stat r,
-  @{PROC}/@{pid}/status r,
-  @{PROC}/@{pid}/route r,
-  @{PROC}/@{pid}/net/route r,
-
-   # /sys
-
-  /sys/devices/**/uevent r,
-
-  # /dev
-
-  /dev/urandom r,
-  /dev/shm/org.chromium.* rw, # This need confirmation
 
   # /lib
 
@@ -144,7 +135,7 @@
 
   /usr/lib/torbrowser/** r,
   /usr/lib/torbrowser/torbrowser ix,
-   /usr/lib/torbrowser/torbrowser-bin ix,
+  /usr/lib/torbrowser/torbrowser-bin ix,
   /usr/lib/torbrowser/plugin-container ix,
   /usr/lib/torbrowser/{,[a-z]*}.so m,
 
@@ -172,5 +163,11 @@
   owner @{HOME}/.mozilla/torbrowser/*.default/storage/permanent/chrome/idb/*.sqlite wk,
   owner @{HOME}/.mozilla/torbrowser/*.default/.parentlock wk,
   owner @{HOME}/.mozilla/torbrowser/*.default/.parentwritetest wk,
-  
+
+	
+  # Deny access read/write to the cache directory, for the same reason noted on the Firefox profiles
+  # This shouln't harm your privacy as only cached files and data reporting are blocked
+
+  deny owner @{HOME}/.cache/mozilla/torbrowser/*.default rw,
+  deny owner @{HOME}/.mozilla/torbrowser/datareporting/* rw,
 }
