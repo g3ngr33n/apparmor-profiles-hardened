@@ -14,13 +14,13 @@
 
    # /tmp
 
-	owner /tmp/* rw,
+   owner /tmp/* rw,
 
-	# Deny ipv6 only
+   # Deny ipv6 only
 
    deny network inet6 stream,
 
-	# /etc conf
+   # /etc conf
 
    /etc/mime.types r,
    /etc/ld-musl-x86_64.path r, 
@@ -34,14 +34,14 @@
 
    # /lib
 
-	/lib/libz* rm,
-	/lib/libmount* rm,
-	/lib/libpcre* rm,
-	/lib/libuuid* rm,
-	/lib/libbz2* rm,
-	/lib/libblkid* rm,
+   /lib/libz* rm,
+   /lib/libmount* rm,
+   /lib/libpcre* rm,
+   /lib/libuuid* rm,
+   /lib/libbz2* rm,
+   /lib/libblkid* rm,
   
-	# /usr/lib
+   # /usr/lib
 
    /usr/lib/libSM* rm,
    /usr/lib/libICE* rm,
@@ -94,7 +94,7 @@
    /usr/lib/libXdmcp* rm,
    /usr/lib/libblkid* rm,
    /usr/lib/libgraphite2* rm,
-	/usr/lib/{pidgin,purple-2}/ r,
+   /usr/lib/{pidgin,purple-2}/ r,
    /usr/lib/{pidgin,purple-2}*/** r,
    /usr/lib/{pidgin,purple-2}/*.{so,so.0,so.0.0.0} rm,
    /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.so rm,
@@ -107,10 +107,7 @@
 	
    # Font and related
 
-   /usr/share/X11/locale/locale.{dir,alias} r,
-	/usr/share/gtk*/gtkrc r,
-	/usr/share/gtk*/*/*.cache r,
-   /usr/share/{fonts,mime,pixmaps,icons}/** r,
+   /usr/share/{gtk*,fonts,mime,pixmaps,icons,X11}/** r,
 
    # /var
 
@@ -124,7 +121,7 @@
    owner @{HOME}/.local/share/recently-used.xbel r,
    owner @{HOME}/.local/share/icons/* r,
 
-	# Specific pidgin
+   # Specific pidgin
 
    owner @{HOME}/.purple/ rw,
    owner @{HOME}/.purple/** rwk,

@@ -17,30 +17,26 @@
    # /dev
 
    /dev/urandom r,
-	/dev/shm/org.chromium.* rw, # This need confirmation
-
-	# /sys
-
-	/sys/devices/**/uevent r,
+   /dev/shm/org.chromium.* rw, # This need confirmation
 
    # Enforce restriction of capabilities
 
    deny capability sys_admin,
    deny capability net_admin,
 
-	# /tmp
+   # /tmp
 
-	owner /tmp/* rw,
+   owner /tmp/* rw,
 
-	# ipv4 only
+   # ipv4 only
 
-  network inet stream,
-  deny network inet6 stream,
+   network inet stream,
+   deny network inet6 stream,
 
-	# /etc conf
+   # /etc conf
 
-	/etc/fstab r,
-	/etc/drirc r,
+   /etc/fstab r,
+   /etc/drirc r,
    /etc/gre.d/* r,
    /etc/mime.types r,
    /etc/ld-musl-x86_64.path r, 
@@ -51,20 +47,20 @@
    /etc/ld.so.conf r,
    /etc/gtk-3.0/settings.ini r,
   
-	# Deny reading of /etc/passwd (noisy)
+   # Deny reading of /etc/passwd (noisy)
 
    deny /etc/passwd r,
 	
-	# /lib
+   # /lib
 
-	/lib/libz* rm,
-	/lib/libmount* rm,
-	/lib/libpcre* rm,
-	/lib/libuuid* rm,
-	/lib/libbz2* rm,
-	/lib/libblkid* rm,
+   /lib/libz* rm,
+   /lib/libmount* rm,
+   /lib/libpcre* rm,
+   /lib/libuuid* rm,
+   /lib/libbz2* rm,
+   /lib/libblkid* rm,
   
-  	# /usr/lib
+   # /usr/lib
 
    /usr/lib/libasound* rm,
    /usr/lib/libfreebl3* rm,
@@ -165,21 +161,21 @@
    
    # Firefox specific config files per profile
 
-	owner @{HOME}/.mozilla/firefox/profiles.ini r,
-	owner @{HOME}/.mozilla/firefox/*.default/** r,
-	owner @{HOME}/.mozilla/firefox/*.default/*.{txt,xml,html,ini,json,sqlite,js,lz4,tmp,sqlite-wal,bak,sqlite-shm,sqlite-journal,db} wk,
-	owner @{HOME}/.mozilla/firefox/*.default/browser-extension-data/*/*.{js,tmp}  w,
-	owner @{HOME}/.mozilla/firefox/*.default/lock w,
-	owner @{HOME}/.mozilla/firefox/*.default/storage/permanent/chrome/idb/*.sqlite wk,
-	owner @{HOME}/.mozilla/firefox/*.default/.parentlock wk,
+   owner @{HOME}/.mozilla/firefox/profiles.ini r,
+   owner @{HOME}/.mozilla/firefox/*.default/** r,
+   owner @{HOME}/.mozilla/firefox/*.default/*.{txt,xml,html,ini,json,sqlite,js,lz4,tmp,sqlite-wal,bak,sqlite-shm,sqlite-journal,db} wk,
+   owner @{HOME}/.mozilla/firefox/*.default/browser-extension-data/*/*.{js,tmp}  w,
+   owner @{HOME}/.mozilla/firefox/*.default/lock w,
+   owner @{HOME}/.mozilla/firefox/*.default/storage/permanent/chrome/idb/*.sqlite wk,
+   owner @{HOME}/.mozilla/firefox/*.default/.parentlock wk,
 
    # Enforce denied read/write to datareporting and to the whole .cache/ directory, for the following reasons :
    #
    # /safebrowsing/ - Related file of the safebrowsing
    # activity-stream.tippytop.json - Log your browsing history, even with "never remember history" or "private browsing" enabled.
-	# /startupCache/ - Include binary format as cache 
+   # /startupCache/ - Include binary format as cache 
 
-	deny @{HOME}/.cache/mozilla/firefox/*.default/* rw,
+   deny @{HOME}/.cache/mozilla/firefox/*.default/* rw,
    deny @{HOME}/.mozilla/firefox/*.default/datareporting/* w,
 
 }
