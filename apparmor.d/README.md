@@ -40,6 +40,22 @@ Consider to set Safest level in the Security settings of the torbutton or set ja
 
 *Small issue, When you select Open database, the dialog will show your currrent directory / home as empty, simply enter in the input field "File name" your database name to open it.*
 
+## Pidgin
+
+Pidgin is a nice IM client with a lot of features, but it has fat code. Except Jabber, it allow with third party plugins, a lot of protocol from irc to skypeweb, steam messenger and other plugins that
+require access to sensitive part of the os, definitevely the kind of application that need tight control.
+
+Tested wtih xmpp/jabber with the plugins OTR and lurch (OMEMO).
+
+Build with minimum :
+gtk nls pie -aqua -dbus -debug -doc -eds -gadu -gnutls -groupwise -gstreamer -idn -meanwhile -ncurses -networkmanager -perl -prediction -python -sasl -silc -spell -tcl -tk -xscreensaver -zephyr -zeroconf
+
+- Plugins (OTR, lurch) work
+- Restricted access to sound system
+- Restricted access to file system
+- Restricted file transfer,
+- Gstreamer disabled
+...
 
 ## Pulseaudio
 

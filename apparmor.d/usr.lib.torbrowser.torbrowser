@@ -26,7 +26,7 @@
   # ipv4 only
 
   network inet stream,
-  deny network inet6 stream, # I haven't ipv6, including in my kernel config. Feel free to allow if you have any need of it
+  deny network inet6 stream, 
 
   # /etc conf
 
@@ -134,16 +134,12 @@
   # Torbrowser lib/binary directory
 
   /usr/lib/torbrowser/** r,
-  /usr/lib/torbrowser/torbrowser ix,
-  /usr/lib/torbrowser/torbrowser-bin ix,
-  /usr/lib/torbrowser/plugin-container ix,
+  /usr/lib/torbrowser/{torbrowser,torbrowser-bin,plugin-container} ix,
   /usr/lib/torbrowser/{,[a-z]*}.so m,
 
   # Font
 
-  /usr/share/fonts/** r,
-  /usr/share/mime/** r,
-  /usr/share/X11/locale/** r,
+  /usr/share/{mime,X11,fonts}/** r,
   /usr/share/glib-2.0/schemas/gschemas.compiled r,
   /var/cache/fontconfig/* r,
   

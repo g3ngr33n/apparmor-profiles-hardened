@@ -14,7 +14,7 @@ The cost of hardening your application often require to break / restrict certain
 # Contribution welcome
 
 If you feel to share, make a PR ! I will as much as I can take in consideration any request or advise, if you want to convert those profile for your distribution, please do ! 
- If you need help, have question or an issue with those profiles, open an issue on this git.
+if you need help, have question or an issue with those profiles, open an issue on this git.
 
 
 # Documentation work in progress

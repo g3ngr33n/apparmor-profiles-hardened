@@ -7,26 +7,26 @@
 # Path to the binary
 /usr/lib/firefox/firefox {
 
-  # Basic deny
+   # Basic deny
 
-  deny /usr/** w,
-  deny /etc/** w,
-  deny /opt/** rw,
-  deny /boot/** rw,
+   deny /usr/** w,
+   deny /etc/** w,
+   deny /opt/** rw,
+   deny /boot/** rw,
 
-	# /dev
+   # /dev
 
-	/dev/urandom r,
+   /dev/urandom r,
 	/dev/shm/org.chromium.* rw, # This need confirmation
 
 	# /sys
 
 	/sys/devices/**/uevent r,
 
-  # Enforce restriction of capabilities
+   # Enforce restriction of capabilities
 
-  deny capability sys_admin,
-  deny capability net_admin,
+   deny capability sys_admin,
+   deny capability net_admin,
 
 	# /tmp
 
@@ -52,7 +52,8 @@
    /etc/gtk-3.0/settings.ini r,
   
 	# Deny reading of /etc/passwd (noisy)
-   /etc/passwd r,
+
+   deny /etc/passwd r,
 	
 	# /lib
 
@@ -64,6 +65,7 @@
 	/lib/libblkid* rm,
   
   	# /usr/lib
+
    /usr/lib/libasound* rm,
    /usr/lib/libfreebl3* rm,
    /usr/lib/libpixman-1* rm,
@@ -132,7 +134,7 @@
    /usr/lib/gdk-pixbuf-{,[0-9].*}/{,[0-9].*}/loaders.cache r,
    /usr/lib/gdk-pixbuf-{,[0-9].*}/{,[0-9].*}/loaders/libpixbufloader*.so rm,
    
-  # Firefox directory
+   # Firefox directory
 
    /usr/lib/firefox/* r,
    /usr/lib/firefox/firefox ix,
@@ -144,25 +146,24 @@
    /usr/lib/firefox/defaults/** r,
    /usr/lib/firefox/browser/chrome/icons/** r,
 
-  # Disable default features of Firefox : Pocket, Screenshot, Followonsearch, Form autofill, Activity stream...
+   # Disable default features of Firefox : Pocket, Screenshot, Followonsearch, Form autofill, Activity stream...
 
-  deny /usr/lib/firefox/browser/features/** rw, 
+   deny /usr/lib/firefox/browser/features/ r,
+   deny /usr/lib/firefox/browser/features/* rwx,
 
   # Font
 
-  /usr/share/fonts/** r,
-  /usr/share/mime/** r,
-  /usr/share/X11/locale/** r,
-  /usr/share/glib-2.0/schemas/gschemas.compiled r,
-  /var/cache/fontconfig/* r,
+   /usr/share/{mime,fonts,X11}/** r,
+   /usr/share/glib-2.0/schemas/gschemas.compiled r,
+   /var/cache/fontconfig/* r,
   
-  # Basic user files 
+   # Basic user files 
 
-  owner @{HOME}/.Xauthority r,
-  owner @{HOME}/.{config,cache}/fontconfig/ r,
-  owner @{HOME}/.local/share/recently-used.xbel r,
-
-	# Firefox specific config files per profile
+   owner @{HOME}/.Xauthority r,
+   owner @{HOME}/.{config,cache}/fontconfig/ r,
+   owner @{HOME}/.local/share/recently-used.xbel r,
+   
+   # Firefox specific config files per profile
 
 	owner @{HOME}/.mozilla/firefox/profiles.ini r,
 	owner @{HOME}/.mozilla/firefox/*.default/** r,
@@ -180,6 +181,5 @@
 
 	deny @{HOME}/.cache/mozilla/firefox/*.default/* rw,
    deny @{HOME}/.mozilla/firefox/*.default/datareporting/* w,
-  
-	
+
 }
