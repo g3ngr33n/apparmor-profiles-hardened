@@ -1,6 +1,6 @@
  # Apparmor 2.13.1 -  Copyright (C) 2009-2018 Canonical Ltd.
 #
-# Hardened profile for firefox 60.4
+# Hardened profile for firefox 60.5.0
 
 #include <tunables/global>
 
@@ -16,17 +16,12 @@
 
    # /dev
 
-   /dev/urandom r,
+   owner /dev/urandom r,
    /dev/shm/org.chromium.* rw, # This need confirmation
-
-   # Enforce restriction of capabilities
-
-   deny capability sys_admin,
-   deny capability net_admin,
 
    # /tmp
 
-   owner /tmp/* rw,
+   deny /tmp/* rw,
 
    # ipv4 only
 
@@ -46,10 +41,6 @@
    /etc/timezone r,
    /etc/ld.so.conf r,
    /etc/gtk-3.0/settings.ini r,
-  
-   # Deny reading of /etc/passwd (noisy)
-
-   deny /etc/passwd r,
 	
    # /lib
 
@@ -149,8 +140,7 @@
 
   # Font
 
-   /usr/share/{mime,fonts,X11}/** r,
-   /usr/share/glib-2.0/schemas/gschemas.compiled r,
+   /usr/share/{mime,fonts,X11,glib-2.0}/** r,
    /var/cache/fontconfig/* r,
   
    # Basic user files 

@@ -24,10 +24,10 @@ Consider to add the following hardening project for more security
 
 ## Torbrowser
 
-- torbutton plugins and noscript are now working
-- Average restriction compare to Firefox but shouldn't broke any sensitive settings made by Torbrowser
+- torbutton plugins and noscript are working
+- Same restriction as Firefox
 
-Consider to set Safest level in the Security settings of the torbutton or set javascript.enabled to false in about:config
+Consider to set Safest level in the Security settings of the Tor button plugins
 
 *Torbrowser will not start if no profile are already available (.mozilla/torbrowser .cache/mozilla ...), run first torbrowser with apparmor disabled to create the basic directory / configuration file / cache... required.*
 
@@ -56,10 +56,3 @@ gtk nls pie -aqua -dbus -debug -doc -eds -gadu -gnutls -groupwise -gstreamer -id
 - Restricted file transfer,
 - Gstreamer disabled
 ...
-
-## Pulseaudio
-
-Custom profiles fit for my needs
-
-- Network access, webrtc... disabled
-- Allow pulseaudio to forward sound from pcm to hdmi

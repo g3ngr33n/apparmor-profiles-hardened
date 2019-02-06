@@ -104,6 +104,7 @@
    /usr/lib/libsoftok* rm, 
    /usr/lib/libfreeb* rm,
    /usr/lib/librsvg* rm,
+   /usr/lib/libotr* rm,
 	
    # Font and related
 
