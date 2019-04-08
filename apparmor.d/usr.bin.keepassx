@@ -75,8 +75,8 @@
    /usr/lib/libgbm* rm,
    /usr/lib/libdrm* rm,
    /usr/lib/libxshmfence rm,
-   /usr/lib/gcc/x86_64-gentoo-linux-musl/7.3.0/libstdc++* rm,
-   /usr/lib/gcc/x86_64-gentoo-linux-musl/7.3.0/libgcc_s* rm,
+   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so.{[0-9],[0-9].*} rm,
+   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so.{[0-9],[0-9].*} rm,
 
   # Specific lib for Qt5
 
