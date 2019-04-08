@@ -18,20 +18,20 @@ Profile will no longer get update
 
 ![Fireproc ](https://raw.githubusercontent.com/g3ngr33n/apparmor-profiles-hardened/master/ffisdead.gif)
 
-~~By default, Firefox is shipped for maximum user experience but it come with a cost of a low security and maximum private data collection. If the previous version of Firefox was more or less easy to configure to increase the security 
-and block all harmful privacy invasion, it has become a hassle, changing the settings for all those privacy sucker in the about:config doesn't seem to be respected anymore. 
+~~By default, Firefox is shipped for maximum user experience but it come with a cost of a low security and maximum private data collection. If the previous version of Firefox was more or less easy to configure to increase the security~~ 
+~~and block all harmful privacy invasion, it has become a hassle, changing the settings for all those privacy sucker in the about:config doesn't seem to be respected anymore.~~ 
 
-This profile was made with security/privacy in mind, it does :
+~~This profile was made with security/privacy in mind, it does :~~
 
-* Disable Safebrowsing, Telemetry, Aufofill, Followonsearch, Activity stream, Data reporting, Pocket and all those features.
-* Firefox read permission is restricted, cannot browser trought your system *exmaple in your urlbar : /home or /usr....*
-* Addon/Extension installation restricted, extensions cannot  be installed as long apparmor is enabled. *You can of course temporary disable apparmor for install your extensions*
-* Downloads restricted 
-* Html5 video restricted 
-* Disable Webgl, Webrtc and other features harmful for the security.
-* Denied access to your graphics gpu, memory usage and other hardware ressources of your machine
+~~Disable Safebrowsing, Telemetry, Aufofill, Followonsearch, Activity stream, Data reporting, Pocket and all those features.~~
+~~Firefox read permission is restricted, cannot browser trought your system *exmaple in your urlbar : /home or /usr....~~
+~~Addon/Extension installation restricted, extensions cannot  be installed as long apparmor is enabled. *You can of course temporary disable apparmor for install your extensions~~
+~~Downloads restricted~~ 
+~~Html5 video restricted~~ 
+~~Disable Webgl, Webrtc and other features harmful for the security.~~
+~~Denied access to your graphics gpu, memory usage and other hardware ressources of your machine~~
 
-Consider to add the following hardening project for more security 
+~~Consider to add the following hardening project for more security~~
 
 * [Simple sandbox](https://wiki.gentoo.org/wiki/Simple_sandbox)
 * [Firefox configuration hardening](https://github.com/pyllyukko/user.js/)
@@ -42,14 +42,14 @@ Consider to add the following hardening project for more security
 
 ## Torbrowser
 
-Profile will no longer get update
+On hold 
 
-~~- torbutton plugins and noscript are working
-- Same restriction as Firefox
+~~-torbutton plugins and noscript are working~~
+~~Same restriction as Firefox~~
 
-Consider to set Safest level in the Security settings of the Tor button plugins
+~~Consider to set Safest level in the Security settings of the Tor button plugins~~
 
-*Torbrowser will not start if no profile are already available (.mozilla/torbrowser .cache/mozilla ...), run first torbrowser with apparmor disabled to create the basic directory / configuration file / cache... required.*~~
+~~Torbrowser will not start if no profile are already available (.mozilla/torbrowser .cache/mozilla ...), run first torbrowser with apparmor disabled to create the basic directory / configuration file / cache... required.*~~
 
 
 ## Keepassx
