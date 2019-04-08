@@ -16,6 +16,8 @@ Consider to add the following hardening project for more security
 
 Profile will no longer get update
 
+![Fireproc ](https://raw.githubusercontent.com/g3ngr33n/apparmor-profiles-hardened/master/ffisdead.gif)
+
 ~~By default, Firefox is shipped for maximum user experience but it come with a cost of a low security and maximum private data collection. If the previous version of Firefox was more or less easy to configure to increase the security 
 and block all harmful privacy invasion, it has become a hassle, changing the settings for all those privacy sucker in the about:config doesn't seem to be respected anymore. 
 
