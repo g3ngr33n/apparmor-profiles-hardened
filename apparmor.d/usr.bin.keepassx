@@ -1,4 +1,4 @@
-# Apparmor 2.13.1 -  Copyright (C) 2009-2018 Canonical Ltd.
+# Apparmor 2.13.2 -  Copyright (C) 2009-2018 Canonical Ltd.
 #
 # Hardened profile for keepassx
 
@@ -44,7 +44,7 @@
    /lib/libuuid* rm,
 
    # /usr/lib
-
+   /usr/lib/libbsd* rm,
    /usr/lib/libQt5* rm,
    /usr/lib/libgcrypt* rm,
    /usr/lib/libgpg-error* rm,
@@ -61,7 +61,9 @@
    /usr/lib/libXau* rm,
    /usr/lib/libXext* rm,
    /usr/lib/libXrender* rm,
+   /usr/lib/libXdamage* rm,
    /usr/lib/libexpat* rm,
+   /usr/lib/libXx* rm,
    /usr/lib/libxkb* rm,
    /usr/lib/libxcb* rm,
    /usr/lib/libICE* rm,
@@ -71,10 +73,11 @@
    /usr/lib/libfontconfig* rm,
    /usr/lib/libglib-2.0* rm,
    /usr/lib/libpng16* rm,
+   /usr/lib/libGL* rm,
    /usr/lib/libEGL* rm,
    /usr/lib/libgbm* rm,
    /usr/lib/libdrm* rm,
-   /usr/lib/libxshmfence rm,
+   /usr/lib/libxshmfence* rm,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so.{[0-9],[0-9].*} rm,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so.{[0-9],[0-9].*} rm,
 
@@ -88,6 +91,7 @@
    /usr/share/{mime,icons,fonts,X11,keepassx}/** r,
 
    # /var
+
    /var/cache/fontconfig/* r,
 
    # Basic user files 

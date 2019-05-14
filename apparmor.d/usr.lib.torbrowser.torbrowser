@@ -1,28 +1,16 @@
-# Apparmor 2.13.1 -  Copyright (C) 2009-2018 Canonical Ltd.
+# Apparmor 2.13.2 -  Copyright (C) 2009-2019 Canonical Ltd.
 #
-# Hardened profile for torbrowser 8.0.5
+# Hardened profile for torbrowser 8.0.9
 
 #include <tunables/global>
 
-# Path to the binary
 /usr/lib/torbrowser/torbrowser {
-
-   # Basic deny
-
-   deny /usr/** w,
-   deny /etc/** w,
-   deny /opt/** rw,
-   deny /boot/** rw,
 
    # /dev
 
    /dev/urandom r,
-   owner /dev/shm/org.chromium.* rw, # This need confirmation
+   /dev/shm/org.chromium.* rw, # This need confirmation
 
-   # /tmp
-
-   deny /tmp/* rw,
-   
    # ipv4 only
 
    network inet stream,
@@ -31,7 +19,6 @@
    # /etc conf
 
    /etc/mtab r,
-   /etc/fstab r,
    /etc/drirc r,
    /etc/mailcap r,
    /etc/mime.types r,
@@ -39,10 +26,9 @@
    /etc/localtime r,
    /etc/hosts r,
    /etc/fonts/** r,
-   /etc/resolv.conf r,
    /etc/timezone r,
    /etc/ld.so.conf r,
-   /etc/gtk-3.0/settings.ini r,
+   /etc/gtk-{2,3}.0/settings.ini r,
 
    # /lib
 
@@ -55,6 +41,7 @@
 
    # /usr/lib
 
+   /usr/lib/libbsd* rm,
    /usr/lib/libfreebl3* rm,
    /usr/lib/libpixman-1* rm,
    /usr/lib/libsoftokn3* rm,
@@ -124,12 +111,11 @@
    /usr/lib/libnss* rm,
    /usr/lib/libsmime3* rm,
    /usr/lib/libXss* rm,
-   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so.{[0-9],[0-9].*} rm,
-   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so.{[0-9],[0-9].*} rm,
-   /usr/lib/gtk-3/{,[0-9].*}/immodules.cache r, 
-   /usr/lib/gtk-3/{,[0-9].*}/engines/* rm,
-   /usr/lib/gdk-pixbuf-{,[0-9].*}/{,[0-9].*}/loaders.cache r,
-   /usr/lib/gdk-pixbuf-{,[0-9].*}/{,[0-9].*}/loaders/libpixbufloader*.so rm,
+   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/{libgcc,libstdc}*.so* rm,
+   /usr/lib/gtk-{2,3}/{,[0-9].*}/immodules.cache r, 
+   /usr/lib/gtk-{2,3}/{,[0-9].*}/engines/* rm,
+   /usr/lib/gdk-pixbuf-*/*/loaders.cache r,
+   /usr/lib/gdk-pixbuf-*/*/libpixbufloader*.so rm,
    
    # Torbrowser lib/binary directory
 
@@ -139,7 +125,8 @@
 
    # Font
 
-   /usr/share/{mime,X11,fonts,glib-2.0}/** r,
+   /usr/share/{mime,X11,fonts}/** r,
+   /usr/share/glib-2.0/schemas/gschemas.compiled r,
    /var/cache/fontconfig/* r,
   
    # Basic user files 
@@ -158,12 +145,12 @@
    owner @{HOME}/.mozilla/torbrowser/*.default/storage/permanent/chrome/idb/*.sqlite wk,
    owner @{HOME}/.mozilla/torbrowser/*.default/.parentlock wk,
    owner @{HOME}/.mozilla/torbrowser/*.default/.parentwritetest wk,
+   owner @{HOME}/.mozilla/torbrowser/*.default/extensions/*.xpi wk,
 
 	
-   # Deny access read/write to the cache directory, for the same reason noted on the Firefox profiles
-   # This shouln't harm your privacy as only cached files and data reporting are blocked
+  # Deny access read/write to the cache directory, for the same reason noted on the Firefox profiles
+  # This shouln't harm your privacy as only cached files and data reporting are blocked
 
-   deny owner @{HOME}/.cache/mozilla/torbrowser/*.default rw,
-   deny owner @{HOME}/.mozilla/torbrowser/datareporting/* rw,
-   
+  deny owner @{HOME}/.cache/mozilla/torbrowser/*.default rw,
+  deny owner @{HOME}/.mozilla/torbrowser/datareporting/* rw,
 }

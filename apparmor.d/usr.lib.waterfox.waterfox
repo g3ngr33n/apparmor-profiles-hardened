@@ -1,4 +1,4 @@
- # Apparmor 2.13.2 -  Copyright (C) 2009-2018 Canonical Ltd.
+ # Apparmor 2.13.2 -  Copyright (C) 2009-2019 Canonical Ltd.
 #
 # Hardened profile for waterfox 
 # Consult README for more info
@@ -6,14 +6,8 @@
 #include <tunables/global>
 
 # Path to the binary waterfox
- /usr/lib/waterfox/waterfox {
 
-   # Basic deny, enforce restriction 
-
-   deny /usr/** w,
-   deny /etc/** w,
-   deny /opt/** rw,
-   deny /boot/** rw,
+/usr/lib/waterfox/waterfox {
 
    # /dev
 
@@ -31,7 +25,7 @@
 
    # /etc conf
 
-	/etc/hosts r,
+   /etc/hosts r,
    /etc/drirc r,
    /etc/gre.d/* r,
    /etc/mime.types r,
@@ -53,7 +47,9 @@
    /lib/libblkid* rm,
   
    # /usr/lib
-	/usr/lib/libasound* rm,
+
+   /usr/lib/libbsd* rm,
+   /usr/lib/libasound* rm,
    /usr/lib/libfreebl3* rm,
    /usr/lib/libpixman-1* rm,
    /usr/lib/libsoftokn3* rm,
@@ -114,7 +110,7 @@
    /usr/lib/libnss* rm,
    /usr/lib/libsmime3* rm,
    /usr/lib/libXss* rm,
-	/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache r,
+   /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache r,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so.{[0-9],[0-9].*} rm,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so.{[0-9],[0-9].*} rm,
    /usr/lib/gtk-{1,2}.0/{,[0-9].*}/immodules.cache r, 
@@ -132,7 +128,7 @@
    /usr/lib/waterfox/defaults/** r,
    /usr/lib/waterfox/browser/chrome/icons/** r,
 
- # Font
+   # Fonts
 
    /usr/share/{mime,fonts,X11,glib-2.0,icons}/** r,
    /var/cache/fontconfig/* r,
@@ -143,9 +139,9 @@
    owner @{HOME}/.{config,cache}/fontconfig/ r,
    owner @{HOME}/.local/share/recently-used.xbel r,
    
-   # waterfox specific config files per profile
+   # Waterfox specific config files per profile
 
- 	owner @{HOME}/.waterfox/** r,
+   owner @{HOME}/.waterfox/** r,
    owner @{HOME}/.waterfox/profiles.ini r,
    owner @{HOME}/.waterfox/*.default/** r,
    owner @{HOME}/.waterfox/*.default/*.{txt,xml,html,ini,json,sqlite,js,lz4,tmp,sqlite-wal,bak,sqlite-shm,sqlite-journal,db} wk,
@@ -154,7 +150,11 @@
    owner @{HOME}/.waterfox/*.default/.parentlock wk,
    owner @{HOME}/.waterfox/*.default/browser-extension-data/*/*.{js,js.tmp} wk,
 
-   deny @{HOME}/.cache/mozilla/waterfox/*.default/* rw,
+   owner @{HOME}/Downloads rw,
+
+   # Deny permission read / write on cache directory and datareporting
+
+   deny @{HOME}/.cache/waterfox/*.default/* rw,
    deny @{HOME}/.waterfox/*.default/datareporting/* w,
 
 }
