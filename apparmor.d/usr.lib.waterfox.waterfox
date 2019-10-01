@@ -9,6 +9,9 @@
 
 /usr/lib/waterfox/waterfox {
 
+   signal (send) set=("vtalrm") peer="/usr/lib/waterfox/waterfox",
+   signal (receive) set=("vtalrm") peer="/usr/lib/waterfox/waterfox",
+
    # /dev
 
    /dev/urandom r,
@@ -35,7 +38,7 @@
    /etc/timezone r,
    /etc/ld.so.conf r,
    /etc/gtk-{1,2}.0/settings.ini r,
-	
+   /etc/resolv.conf r, # Can be comment if dns resolv localy	
 
    # /lib
 
@@ -48,9 +51,13 @@
   
    # /usr/lib
 
+   /usr/lib/llvm/{7,8}/lib/* rm,
+   /usr/lib/libgbm* rm,
+   /usr/lib/libEGL* rm,
    /usr/lib/libbsd* rm,
    /usr/lib/libasound* rm,
    /usr/lib/libfreebl3* rm,
+   /usr/lib/libfreeblpriv3* rm,
    /usr/lib/libpixman-1* rm,
    /usr/lib/libsoftokn3* rm,
    /usr/lib/libxshmfence* rm,
@@ -76,6 +83,7 @@
    /usr/lib/libXi* rm,
    /usr/lib/libXfixes* rm,
    /usr/lib/libcairo* rm,
+   /usr/lib/libcroco* rm,
    /usr/lib/libgdk_pixbuf-2.0* rm,
    /usr/lib/libatk-1.0* rm,
    /usr/lib/libepoxy* rm,
@@ -106,11 +114,13 @@
    /usr/lib/libicuuc* rm,
    /usr/lib/libplds4* rm,
    /usr/lib/libplc4* rm,
+   /usr/lib/librsvg* rm,
    /usr/lib/libssl* rm,
    /usr/lib/libnss* rm,
    /usr/lib/libsmime3* rm,
    /usr/lib/libXss* rm,
    /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache r,
+   /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.so rm,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so.{[0-9],[0-9].*} rm,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so.{[0-9],[0-9].*} rm,
    /usr/lib/gtk-{1,2}.0/{,[0-9].*}/immodules.cache r, 
