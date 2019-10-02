@@ -12,19 +12,6 @@ Consider to add the following hardening project for more security
 * [Firefox configuration hardening](https://github.com/pyllyukko/user.js/)
 * [uMatrix](https://github.com/gorhill/uMatrix )
 
-## Torbrowser
-
-* Addon/Extension installation restricted, default torbrowser extensions allowed.
-* Downloads restricted
-* Denied access to your gpu, memory usage and other hardware ressources of your machine
-
-Consider to add the following hardening project for more security 
-
-* [Simple sandbox](https://wiki.gentoo.org/wiki/Simple_sandbox)
-* [Firefox configuration hardening](https://github.com/pyllyukko/user.js/)
-* [uMatrix](https://github.com/gorhill/uMatrix )
-* Set "Safest level" located in the security settings of the Tor button plugins
-
 ## Psi
 
 Psi IM is a good example of security minded development. Light, fast, rich in features but not fancy, slow development. This profile restrict the
@@ -59,3 +46,7 @@ gtk nls pie -aqua -dbus -debug -doc -eds -gadu -gnutls -groupwise -gstreamer -id
 ![Fireproc ](https://raw.githubusercontent.com/g3ngr33n/apparmor-profiles-hardened/master/ffisdead.gif)
 
 No longer maintained
+
+## Torbrowser
+
+Following the bulimia way of Firefox. No longer maintained.
