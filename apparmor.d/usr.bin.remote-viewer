@@ -1,0 +1,167 @@
+# Apparmor 2.13.3 -  Copyright (C) 2009-2018 Canonical Ltd.
+#
+# Hardened profile for remote-viewer
+
+#include <tunables/global>
+
+# Path to the binary
+/usr/bin/remote-viewer {
+
+   # Basic deny
+
+   deny /usr/** w,
+   deny /etc/** w,
+   deny /opt/** rw,
+   deny /boot/** rw,
+   deny /root/** rw,
+   deny /sys/** rw,
+
+   # Deny network access
+
+   deny network,
+   deny network raw,
+
+   # /etc
+
+   /etc/ld-musl-x86_64.path r,
+   /etc/localtime r,
+   /etc/ssl/openssl.cnf r,
+   /etc/{gtk-3.0,fonts}/** r,
+   
+   # /proc
+
+   /proc/sys/kernel/random/boot_id r,
+
+   # /dev
+
+   /dev/urandom r,
+
+   # lsof -p {PID} -a -d mem | sed 's/.* //' | sort
+ 
+   # /lib
+
+   /lib/libblkid.so** rm,
+   /lib/libbz2.so** rm,
+   /lib/libmount.so** rm,
+   /lib/libpcre.so** rm,
+   /lib/libuuid.so** rm,
+   /lib/libz.so** rm,
+
+   # /usr/lib
+
+   /usr/lib/gstreamer-1.0/libgstapp.so** rm,
+   /usr/lib/gstreamer-1.0/libgstautodetect.so** rm,
+   /usr/lib/gstreamer-1.0/libgstcoreelements.so** rm,
+   /usr/lib/libEGL.so** rm,
+   /usr/lib/libGL.so** rm,
+   /usr/lib/libX11-xcb.so** rm,
+   /usr/lib/libX11.so** rm,
+   /usr/lib/libXau.so** rm,
+   /usr/lib/libXcomposite.so** rm,
+   /usr/lib/libXcurso** rm,
+   /usr/lib/libXdamage.so** rm,
+   /usr/lib/libXdmcp.so** rm,
+   /usr/lib/libXext.so** rm,
+   /usr/lib/libXfixes.so** rm,
+   /usr/lib/libXi.so** rm,
+   /usr/lib/libXrandr.so** rm,
+   /usr/lib/libXrender.so** rm,
+   /usr/lib/libXxf86vm.so** rm,
+   /usr/lib/libatk-1.0.so** rm,
+   /usr/lib/libbsd.so** rm,
+   /usr/lib/libc.so** rm,
+   /usr/lib/libcairo-gobject.so** rm,
+   /usr/lib/libcairo.so** rm,
+   /usr/lib/libcroco-0.6.so** rm,
+   /usr/lib/libcrypto.so** rm,
+   /usr/lib/libdrm.so** rm,
+   /usr/lib/libepoxy.so** rm,
+   /usr/lib/libexpat.so** rm,
+   /usr/lib/libffi.so** rm,
+   /usr/lib/libfontconfig.so** rm,
+   /usr/lib/libfreetype.so** rm,
+   /usr/lib/libfribidi.so** rm,
+   /usr/lib/libgbm.so** rm,
+   /usr/lib/libgdk-3.so** rm,
+   /usr/lib/libgdk_pixbuf-2.0.so** rm,
+   /usr/lib/libgio-2.0.so** rm,
+   /usr/lib/libglapi.so** rm,
+   /usr/lib/libglib-2.0.so** rm,
+   /usr/lib/libgmodule-2.0.so** rm,
+   /usr/lib/libgmp.so** rm,
+   /usr/lib/libgnutls.so** rm,
+   /usr/lib/libgobject-2.0.so** rm,
+   /usr/lib/libgraphite2.so** rm,
+   /usr/lib/libgstapp-1.0.so** rm,
+   /usr/lib/libgstaudio-1.0.so** rm,
+   /usr/lib/libgstbase-1.0.so** rm,
+   /usr/lib/libgstreamer-1.0.so** rm,
+   /usr/lib/libgsttag-1.0.so** rm,
+   /usr/lib/libgstvideo-1.0.so** rm,
+   /usr/lib/libgtk-3.so** rm,
+   /usr/lib/libharfbuzz.so** rm,
+   /usr/lib/libhogweed.so** rm,
+   /usr/lib/libicudata.so** rm,
+   /usr/lib/libicuuc.so** rm,
+   /usr/lib/libidn2.so** rm,
+   /usr/lib/libjpeg.so** rm,
+   /usr/lib/libjso** rm,
+   /usr/lib/liblz4.so** rm,
+   /usr/lib/libnettle.so** rm,
+   /usr/lib/libopus.so** rm,
+   /usr/lib/libpango-1.0.so** rm,
+   /usr/lib/libpangocairo-1.0.so** rm,
+   /usr/lib/libpangoft2-1.0.so** rm,
+   /usr/lib/libpcre2-8.so** rm,
+   /usr/lib/libpixman-1.so** rm,
+   /usr/lib/libpng16.so** rm,
+   /usr/lib/librsvg-2.so** rm,
+   /usr/lib/libspice-client-glib-2.0.so** rm,
+   /usr/lib/libspice-client-gtk-3.0.so** rm,
+   /usr/lib/libssl.so** rm,
+   /usr/lib/libtasn1.so** rm,
+   /usr/lib/libunistring.so** rm,
+   /usr/lib/libva-x11.so** rm,
+   /usr/lib/libva.so** rm,
+   /usr/lib/libvte-2.91.so** rm,
+   /usr/lib/libxcb-dri2.so** rm,
+   /usr/lib/libxcb-dri3.so** rm,
+   /usr/lib/libxcb-glx.so** rm,
+   /usr/lib/libxcb-present.so** rm,
+   /usr/lib/libxcb-sync.so** rm,
+   /usr/lib/libxcb-xfixes.so** rm,
+   /usr/lib/libxcb.so** rm,
+   /usr/lib/libxml2.so** rm,
+   /usr/lib/libxshmfence.so** rm,
+   /usr/lib/gdk-pixbuf-2.0/** rm,
+   /usr/lib/gio/modules/** r,
+
+   # Work without it
+   #/usr/lib/gstreamer-1.0/libgstaudioconvert.so** rm,
+   #/usr/lib/gstreamer-1.0/libgstaudioresample.so** rm,
+   #/usr/lib/gstreamer-1.0/libgstaudiotestsrc.so** rm,
+
+   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so** rm,
+   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so** rm,
+
+   /usr/share/{fonts,mime,X11,icons}/** r,  
+   /var/cache/fontconfig/** r,
+
+   # Basic user files 
+   
+   owner @{HOME}/.Xauthority r,
+   
+   # Specific rules for keepassx
+
+   owner @{HOME}/.config/virt-viewer/** rw,
+   owner @{HOME}/.config/gtk-3.0/** r,
+   owner @{HOME}/.local/share/recently-used** rkw,
+   owner @{HOME}/.xauth** r,
+   owner @{HOME}/newpenbox rwk,
+   owner @{HOME}/tails rwk,
+   owner @{HOME}/penbox rwk,
+
+   # No permission for the cache gstreamer (
+   deny owner @{HOME}/.cache/gstreamer** rwk,
+
+}

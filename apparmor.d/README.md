@@ -1,3 +1,13 @@
+## Remote-viewer (test)
+
+* Not yet tested.
+* Spice / agent-mouse / copy-paste from host to guest working
+* Not tested with libvirt
+
+This profile focus to run remote-viewer with restricted permission (copy/paste, agent-mouse are allowed.). 
+Disallow sound, usbredir and other features of gstreamer/remote-viewer
+
+
 ## Waterfox
 
 * Addon/Extension installation restricted, extensions cannot  be installed when apparmor is active
