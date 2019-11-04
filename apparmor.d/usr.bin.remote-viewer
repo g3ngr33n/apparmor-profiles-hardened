@@ -28,10 +28,6 @@
    /etc/ssl/openssl.cnf r,
    /etc/{gtk-3.0,fonts}/** r,
    
-   # /proc
-
-   /proc/sys/kernel/random/boot_id r,
-
    # /dev
 
    /dev/urandom r,
@@ -157,9 +153,10 @@
    owner @{HOME}/.config/gtk-3.0/** r,
    owner @{HOME}/.local/share/recently-used** rkw,
    owner @{HOME}/.xauth** r,
-   owner @{HOME}/newpenbox rwk,
+   # Qemu script
+   owner @{HOME}/devuanfirefox rwk,
    owner @{HOME}/tails rwk,
-   owner @{HOME}/penbox rwk,
+   owner @{HOME}/devuan rwk,
 
    # No permission for the cache gstreamer (
    deny owner @{HOME}/.cache/gstreamer** rwk,
