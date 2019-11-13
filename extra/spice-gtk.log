@@ -1,0 +1,145 @@
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.287: External plugin loader failed. This most likely means that the plugin loader helper binary was not found or could not be run. You might need to set the GST_PLUGIN_SCANNER environment variable if your setup is unusual. This should normally not be required though.
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstmatroska.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstmatroska.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstreplaygain.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstreplaygain.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvolume.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvolume.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstinterleave.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstinterleave.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstapp.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstapp.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstximagesink.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstximagesink.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstmultipart.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstmultipart.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstsmpte.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstsmpte.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstxvimagesink.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstxvimagesink.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstsubparse.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstsubparse.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstencoding.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstencoding.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstalaw.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstalaw.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstid3demux.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstid3demux.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstimagefreeze.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstimagefreeze.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstcoreelements.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstcoreelements.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgsttcp.so': Error loading shared library /usr/lib/gstreamer-1.0/libgsttcp.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideotestsrc.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideotestsrc.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgsteffectv.so': Error loading shared library /usr/lib/gstreamer-1.0/libgsteffectv.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgsticydemux.so': Error loading shared library /usr/lib/gstreamer-1.0/libgsticydemux.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstdtmf.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstdtmf.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstgoom2k1.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstgoom2k1.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideofilter.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideofilter.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstudp.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstudp.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstwavparse.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstwavparse.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgsty4menc.so': Error loading shared library /usr/lib/gstreamer-1.0/libgsty4menc.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstgoom.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstgoom.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstshapewipe.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstshapewipe.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstaudiomixer.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstaudiomixer.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstaudiorate.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstaudiorate.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstauparse.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstauparse.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstaudiotestsrc.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstaudiotestsrc.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstadder.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstadder.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstisomp4.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstisomp4.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstaudioresample.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstaudioresample.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstmulaw.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstmulaw.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstrawparse.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstrawparse.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstgio.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstgio.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstrtpmanager.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstrtpmanager.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstalphacolor.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstalphacolor.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgsttypefindfunctions.so': Error loading shared library /usr/lib/gstreamer-1.0/libgsttypefindfunctions.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.288: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstflv.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstflv.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideoconvert.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideoconvert.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstalpha.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstalpha.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstwavenc.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstwavenc.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstmultifile.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstmultifile.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstautodetect.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstautodetect.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstrtsp.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstrtsp.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstrtp.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstrtp.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstapetag.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstapetag.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstequalizer.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstequalizer.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstdeinterlace.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstdeinterlace.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstflxdec.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstflxdec.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideorate.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideorate.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideobox.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideobox.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideoscale.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideoscale.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstcutter.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstcutter.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideocrop.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideocrop.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstpbtypes.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstpbtypes.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstcoretracers.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstcoretracers.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstnavigationtest.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstnavigationtest.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstavi.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstavi.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstvideomixer.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstvideomixer.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstaudioparsers.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstaudioparsers.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstplayback.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstplayback.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstlevel.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstlevel.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstspectrum.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstspectrum.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstaudioconvert.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstaudioconvert.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstdebug.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstdebug.so: Permission denied
+
+(remote-viewer:25183): GStreamer-WARNING **: 01:31:34.289: Failed to load plugin '/usr/lib/gstreamer-1.0/libgstaudiofx.so': Error loading shared library /usr/lib/gstreamer-1.0/libgstaudiofx.so: Permission denied
+inputs_connect: inputs channel client create
+red_qxl_set_cursor_peer: 
+main_channel_handle_message: agent start
+
+(remote-viewer:25183): GSpice-WARNING **: 01:31:46.818: Failed to create pipeline: no element "appsrc"
+

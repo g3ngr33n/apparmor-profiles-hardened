@@ -1,12 +1,17 @@
-## Remote-viewer (test)
+## Virt-viewer (remote-viewer)
 
-* Not yet tested.
-* Spice / agent-mouse / copy-paste from host to guest working
-* Not tested with libvirt
+Graphical client for spice-gtk, it has since Qemu 4 add a new display option (-display spice-app), offering the
+spice feature like the mouse passtrought guest <-> host. The interface look similar to the gtk display (-display gtk)
 
-This profile focus to run remote-viewer with restricted permission (copy/paste, agent-mouse are allowed.). 
-Disallow sound, usbredir and other features of gstreamer/remote-viewer
+Starting from the version 0.36, spice-gtk has decided to be hard dependent of gstreamer, gstreamer-audio, gstreamer-plugins (full list https://gitlab.freedesktop.org/fziglio/spice-gtk)
+while Qemu can be build without it.
 
+Despite the evident lost of performance for the Qemu system build without all those new dependency,
+It's increase the surface attack : https://www.cvedetails.com/cve/CVE-2019-9928/
+
+This profile disable those dependency (including libgstrtsp.so :-)), here the output of a running qemu system :
+
+https://github.com/g3ngr33n/apparmor-profiles-hardened/tree/master/extra/spice-gtk.log
 
 ## Waterfox
 
@@ -59,4 +64,4 @@ No longer maintained
 
 ## Torbrowser
 
-Following the bulimia way of Firefox. No longer maintained.
+Following the bulimia of Firefox. No longer maintained.
