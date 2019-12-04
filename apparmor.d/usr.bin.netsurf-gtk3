@@ -1,0 +1,119 @@
+ # Apparmor 2.13.3 -  Copyright (C) 2009-2019 Canonical Ltd.
+#
+# Hardened profile for netsurf-browser
+
+#include <tunables/global>
+
+# Path to the binary netsurf
+
+/usr/bin/netsurf-gtk3 {
+ 
+   # ipv4 only
+
+   network inet stream,
+   deny network inet6 stream,
+
+   # /dev
+
+   /dev/urandom r,
+
+   # /etc
+
+   /etc/hosts r,
+   /etc/drirc r,
+   /etc/gre.d/* r,
+   /etc/mime.types r,
+   /etc/resolv.conf r,
+   /etc/ld-musl-x86_64.path r, 
+   /etc/localtime r,
+   /etc/fonts/** r,
+   /etc/timezone r,
+   /etc/ld* rm,
+   /etc/ssl/openssl.cnf r,
+   /etc/gtk-{2,3}.0/settings.ini r,
+
+   # /lib
+
+   /lib/libz* rm,
+   /lib/libbz2* rm,
+   /lib/libmount* rm,
+   /lib/libpcre* rm,
+   /lib/libuuid* rm,
+   /lib/libblkid* rm,
+  
+   # /usr/lib
+
+   /usr/lib/libEGL* rm,
+   /usr/lib/libGL* rm,
+   /usr/lib/libX* rm,
+   /usr/lib/libatk* rm,
+   /usr/lib/libbsd* rm,
+   /usr/lib/libc* rm,
+   /usr/lib/libcairo* rm, 
+   /usr/lib/libcares* rm,
+   /usr/lib/libcroco-0.6* rm,
+   /usr/lib/libcrypto* rm,
+   /usr/lib/libcss* rm,
+   /usr/lib/libcurl* rm,
+   /usr/lib/libdom* rm,
+   /usr/lib/libdrm* rm,
+   /usr/lib/libepoxy* rm,
+   /usr/lib/libexpat* rm,
+   /usr/lib/libffi* rm,
+   /usr/lib/libfontconfig* rm,
+   /usr/lib/libfreetype* rm,
+   /usr/lib/libfribidi* rm,
+   /usr/lib/libgbm* rm,
+   /usr/lib/libgdk* rm,
+   /usr/lib/libgio-2.0* rm,
+   /usr/lib/libglapi* rm,
+   /usr/lib/libglib-2.0* rm,
+   /usr/lib/libgmodule-2.0* rm,
+   /usr/lib/libgobject-2.0* rm,
+   /usr/lib/libgraphite2* rm,
+   /usr/lib/libgtk-3* rm,
+   /usr/lib/libharfbuzz* rm,
+   /usr/lib/libhubbub* rm,
+   /usr/lib/libicudata* rm,
+   /usr/lib/libicuuc* rm,
+   /usr/lib/libjpeg* rm,
+   /usr/lib/libnsbmp* rm,
+   /usr/lib/libnsgif* rm,
+   /usr/lib/libnspsl* rm,
+   /usr/lib/libnsutils* rm,
+   /usr/lib/libpango* rm,
+   /usr/lib/libparserutils* rm,
+   /usr/lib/libpixman-1* rm,
+   /usr/lib/libpng* rm,
+   /usr/lib/librosprite* rm,
+   /usr/lib/librsvg-2* rm,
+   /usr/lib/libssl* rm,
+   /usr/lib/libsvgtiny* rm,
+   /usr/lib/libutf8proc* rm,
+   /usr/lib/libwapcaplet* rm,
+   /usr/lib/libwebp* rm,
+   /usr/lib/libx* rm, 
+  
+   /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache r,
+   /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/** rm,
+   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s* rm,
+   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++* rm,
+   /usr/lib/gtk-{2,3}.0/{,[0-9].*}/immodules.cache r, 
+   /usr/lib/gtk-{2,3}.0/{,[0-9].*}/engines/* rm,
+   /usr/lib/gio/modules/ r,
+
+   # Charset, Fonts, Misc...
+  
+   /usr/share/X11/locale/** r,
+   /usr/share/{locale,mime,netsurf,fonts,icons,pixmaps,glib-2.0} r,
+   /usr/share/{locale,mime,netsurf,fonts,icons,pixmaps,glib-2.0}** r,
+   /var/cache/fontconfig r,
+   /var/cache/fontconfig** r,
+
+   # Basic user files 
+
+   owner @{HOME}/.Xauthority r,
+   owner @{HOME}/.{config,cache}/fontconfig/ r,
+   owner @{HOME}/.config/netsurf/** rwk,
+   owner @{HOME}/.local/share/recently-used.xbel r,
+}

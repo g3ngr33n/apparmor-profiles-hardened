@@ -21,22 +21,16 @@
    deny network,
    deny network raw,
 
+   # /dev
+
+    /dev/urandom r,
+
    # /etc
 
    /etc/ld-musl-x86_64.path r,
    /etc/localtime r,
    /etc/ssl/openssl.cnf r,
    /etc/{gtk-3.0,fonts}/** r,
-   
-   # /proc
-
-   #/proc/sys/kernel/random/boot_id r,
-
-   # /dev
-
-   /dev/urandom r,
-
-   # lsof -p {PID} -a -d mem | sed 's/.* //' | sort
  
    # /lib
 
@@ -49,7 +43,6 @@
 
    # /usr/lib
 
-   /usr/lib/gstreamer-1.0/ r,
    /usr/lib/libEGL.so** rm,
    /usr/lib/libGL.so** rm,
    /usr/lib/libX11** rm,
@@ -116,6 +109,9 @@
 
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so** rm,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so** rm,
+
+   # Gstreamer extra plugins / audio, allow only read
+   /usr/lib/gstreamer-1.0/ r,
 
    # Visual resources (icons/fonts...)
 
