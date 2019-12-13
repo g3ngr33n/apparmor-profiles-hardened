@@ -30,7 +30,7 @@
    /etc/ld-musl-x86_64.path r,
    /etc/localtime r,
    /etc/ssl/openssl.cnf r,
-   /etc/{gtk-3.0,fonts}/** r,
+   /etc/{gtk-2.0,gtk-3.0,fonts}/** r,
  
    # /lib
 
@@ -115,9 +115,13 @@
 
    # Visual resources (icons/fonts...)
 
-   /usr/share/{fonts,mime,X11,icons,pixmaps}/ r,
-   /usr/share/{fonts,mime,X11,icons,pixmaps}/** r,
-   /var/cache/fontconfig/** r,
+   /usr/share/{fonts,mime,X11,icons,pixmaps,themes}** r,
+   /var/cache/fontconfig/** r,   
+   
+   # Allow read to the following file to avoid segfault when trying to open "Preference" of remote-viewer 
+   #(remote-viewer[14193] trap int3 ip:6ee6b01d37c5 sp:75d10f6dfa50 error:0 in libglib-2.0.so.0.6000.7[6ee6b019a000+80000])
+   # Run the following if no schemas are found in your system : glib-compile-schemas /usr/share/glib-2.0/schemas/ (path may differ)
+   /usr/share/glib-2.0/schemas/gschemas.compiled r,
 
    # Specific user rules
 

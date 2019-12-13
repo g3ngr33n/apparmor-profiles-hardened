@@ -30,6 +30,8 @@
    /etc/timezone r,
    /etc/ld* rm,
    /etc/ssl/openssl.cnf r,
+   /etc/ssl/certs r,
+   /etc/ssl/certs** r,
    /etc/gtk-{2,3}.0/settings.ini r,
 
    # /lib
@@ -105,15 +107,21 @@
    # Charset, Fonts, Misc...
   
    /usr/share/X11/locale/** r,
-   /usr/share/{locale,mime,netsurf,fonts,icons,pixmaps,glib-2.0} r,
-   /usr/share/{locale,mime,netsurf,fonts,icons,pixmaps,glib-2.0}** r,
-   /var/cache/fontconfig r,
+
+   /usr/share/{locale,mime,netsurf,fonts,icons,pixmaps,glib-2.0,themes}** r,
    /var/cache/fontconfig** r,
 
-   # Basic user files 
+   # Basic netsurf cache/config files 
 
    owner @{HOME}/.Xauthority r,
    owner @{HOME}/.{config,cache}/fontconfig/ r,
-   owner @{HOME}/.config/netsurf/** rwk,
+   owner @{HOME}/.config/netsurf/{Cookies,Hotlist,URLs} rwk,
+
+   # Allow only read on Choice file since it handle value affecting the behavior of the browser. 
+
+   owner @{HOME}/.config/netsurf/Choices r,
+
+   owner @{HOME}/.cache/netsurf/** rwk,
    owner @{HOME}/.local/share/recently-used.xbel r,
+   #owner owner @{HOME}/Downloads/** rwk, #If you want to allow download from the browser, uncomment this line
 }
