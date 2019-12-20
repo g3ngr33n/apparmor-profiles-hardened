@@ -1,6 +1,6 @@
  # Apparmor 2.13.3 -  Copyright (C) 2009-2019 Canonical Ltd.
 #
-# Hardened profile for waterfox 
+# Hardened profile for Waterfox 
 # Consult README for more info
 
 #include <tunables/global>
@@ -96,7 +96,6 @@
    /usr/lib/libssl* rm,
    /usr/lib/libnss* rm,
    /usr/lib/libsmime3* rm,
-
 
    /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache r,
    /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.so rm,

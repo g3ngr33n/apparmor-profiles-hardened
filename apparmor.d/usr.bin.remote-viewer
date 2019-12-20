@@ -23,7 +23,7 @@
 
    # /dev
 
-    /dev/urandom r,
+   /dev/urandom r,
 
    # /etc
 
@@ -43,25 +43,13 @@
 
    # /usr/lib
 
+   /usr/lib/libatk** rm,
    /usr/lib/libEGL.so** rm,
    /usr/lib/libGL.so** rm,
-   /usr/lib/libX11** rm,
-   /usr/lib/libXau.so** rm,
-   /usr/lib/libXcomposite.so** rm,
-   /usr/lib/libXcurso** rm,
-   /usr/lib/libXdamage.so** rm,
-   /usr/lib/libXdmcp.so** rm,
-   /usr/lib/libXext.so** rm,
-   /usr/lib/libXfixes.so** rm,
-   /usr/lib/libXi.so** rm,
-   /usr/lib/libXrandr.so** rm,
-   /usr/lib/libXrender.so** rm,
-   /usr/lib/libXxf86vm.so** rm,
-   /usr/lib/libatk-1.0.so** rm,
+   /usr/lib/libX* rm,
    /usr/lib/libbsd.so** rm,
    /usr/lib/libc.so** rm,
-   /usr/lib/libcairo-gobject.so** rm,
-   /usr/lib/libcairo.so** rm,
+   /usr/lib/libcairo** rm,
    /usr/lib/libcroco-0.6.so** rm,
    /usr/lib/libcrypto.so** rm,
    /usr/lib/libdrm.so** rm,
@@ -105,22 +93,27 @@
    /usr/lib/libxshmfence.so** rm,
    /usr/lib/libhogweed** rm,
    /usr/lib/gdk-pixbuf-2.0/** rm,
-   /usr/lib/gio/modules/** r,
+   /usr/lib/gio/modules/ r,
 
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so** rm,
    /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so** rm,
 
-   # Gstreamer extra plugins / audio, allow only read
+   # Gstreamer extra plugins / audio : allow read (minimum required to run the software)
+
+   # but stricly enforce restriction for memory map
    /usr/lib/gstreamer-1.0/ r,
+   deny /usr/lib/gstreamer-1.0/** m,
 
    # Visual resources (icons/fonts...)
 
    /usr/share/{fonts,mime,X11,icons,pixmaps,themes}** r,
-   /var/cache/fontconfig/** r,   
+   /var/cache/fontconfig/** r,    
    
-   # Allow read to the following file to avoid segfault when trying to open "Preference" of remote-viewer 
-   #(remote-viewer[14193] trap int3 ip:6ee6b01d37c5 sp:75d10f6dfa50 error:0 in libglib-2.0.so.0.6000.7[6ee6b019a000+80000])
-   # Run the following if no schemas are found in your system : glib-compile-schemas /usr/share/glib-2.0/schemas/ (path may differ)
+   # Allow read access to the following file to avoid segfault when trying use glib object with an invalid schemas (can't read / wrong value key).
+   # (remote-viewer[14193] trap int3 ip:6ee6b01d37c5 sp:75d10f6dfa50 error:0 in libglib-2.0.so.0.6000.7[6ee6b019a000+80000])
+   # The "fix" is to use the binary glib-compile-schemas to path directory where those are in your system (in my case /usr/share/glib-2.0/schemas/) 
+   # TODO :  Check for incorrect glib callback, exit or handle (fixing the segfault... as gsettings.h state "It is an error to use this flag if the property is not readable")
+   
    /usr/share/glib-2.0/schemas/gschemas.compiled r,
 
    # Specific user rules
@@ -131,11 +124,13 @@
    owner @{HOME}/.xauth** r,
 
    # Qemu script shell starter
+
    owner @{HOME}/qemu_alpine rwk,
    owner @{HOME}/qemu_devuan rwk,
    owner @{HOME}/qemu_tails rwk,
 
    # Enforce restriction for the gstreamer cache
+
    deny owner @{HOME}/.cache/gstreamer** rwk,
 
 }

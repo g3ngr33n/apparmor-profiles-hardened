@@ -25,8 +25,7 @@
 
    /etc/ld-musl-x86_64.path r,
    /etc/fonts/fonts.conf r,
-   /etc/fonts/conf.d/* r,
-   /etc/fonts/conf.avail/* r,
+   /etc/fonts/{conf.avail,conf.d}/ r,
 
    # /proc
 
@@ -79,7 +78,7 @@
 
    # /usr/share - Font / Translate and related 
 
-   /usr/share/{mime,icons,fonts,X11,keepassx}/** r,
+   /usr/share/{mime,icons,fonts,X11,keepassx,themes}/** r,
 
    # /var
 

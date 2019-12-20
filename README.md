@@ -6,29 +6,29 @@ I hope to help folks looking for updated and hardened profile, feel free to cont
 # Why hardened profiles
 
 Apparmor is great security module available on the Linux, it offer a simple way to enforce mandatory access control over your application. Apparmor is a no brainer if you are looking for a
-serious security layer, unfortunately it is often missued and basic profiles, made to work out of the box on every distribution are applied, which offer a very low security layer.
+serious security layer. Common profiles shipped with apparmor are made to work out of the box, security provided by those are very low to none.
 
-The cost of hardening your application often require to break / restrict certains functions or features, this is a normal behavior.  However, as Apparmor is totaly flexible, you have the control of the restriction. 
+# How hardened profiles
 
+By appling a simple method : The more a profile restrict access and permission of a software (read, write, memory map, link lock, signal...)
+the less it become possible to exploit bugs/vulnerability to gain access / privilege to the system. 
 
-# Contribution welcome
+Let's take the example of a common browser, such as Firefox, a great number of functions / options offered are unknown
+or not useful for the usage you have of it. If disk space, processor or memory wasted by those aren't a major concern, 
+weaken in a best case the security of the system to the total exposure of it is a parameters to be aware of.
 
-If you feel to share, make a PR ! I will as much as I can take in consideration any request or advise, if you want to convert those profile for your distribution, please do ! 
-if you need help, have question or an issue with those profiles, open an issue on this git.
-
+Apparmor give you a the control of what the software can and cannot do beyond his own functionality : it
+doesn't fix vulnerability but can prevent them to work.
 
 # Documentation work in progress
 
-If you are looking for a good documentation on apparmor, you should add the official wiki your bookmark
+If you are looking for a good documentation on apparmor, you should add the official wiki to your bookmark
 
 [Apparmor documentation](https://gitlab.com/apparmor/apparmor/wikis/Documentation)
 
 The profiles offered here was made from scratch, the idea behind it is explained here :
 
 [Profiling by hand]https://gitlab.com/apparmor/apparmor/wikis/Profiling_by_hand)
-
-I aim to share later on, some of my method to write a minimal restricted profile for apparmor.
-
 
 ## Copyright
 
