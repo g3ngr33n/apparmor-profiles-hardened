@@ -1,0 +1,1 @@
+@{mime} = /usr/share/{mime,applications}** /usr/local/share/{mime,applications}**

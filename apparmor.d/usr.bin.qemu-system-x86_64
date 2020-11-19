@@ -1,0 +1,51 @@
+# Apparmor 3.0.0 Copyright (C) 2009-2020 Canonical Ltd.
+#
+# Hardened profile for qemu
+
+#include <tunables/global>
+#include <tunables/mime>
+#include <tunables/lib>
+#include <tunables/usrlib>
+
+   /usr/bin/qemu-system-x86_64 {
+
+   # Allow signal kill
+   signal (receive, send) set=("kill"),
+
+   # needed to drop privileges
+   capability setgid,
+   capability setuid,
+
+   signal (receive, send) set=("usr1"),
+   signal (receive, send) set=("usr2"),
+
+
+   owner /dev/kvm rw, # user qemu must be in the kvm group
+   /dev/urandom r,
+   /dev/tty wr,
+   /dev/null rw,
+
+   #/etc/resolv.conf r, # Uncomment if the guest system need access to the resolver
+
+   # Access to need proc
+
+   @{PROC}/@{pid}/task/*/comm rw,
+   @{PROC}/@{pid}/fd** r,
+   @{PROC}/@{pid}/cmdline r,
+
+   @{lib}** rm, # Basic lib
+   @{usrlib}** rm, # To fix too permissive
+	
+   # Bios binary
+
+   /usr/share/qemu/* rm,	
+   /usr/share/{seavgabios,seabios}/*.bin rm,
+
+   @{mime} rw,
+
+   owner @{HOME}/** r,
+   owner @{HOME}/*.sock wk, # Allow read/write access to spice socket
+   owner @{HOME}/qemuimg/*.{iso,img} wk,
+
+ 
+}

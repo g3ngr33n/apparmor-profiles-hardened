@@ -1,0 +1,89 @@
+ # Apparmor 2.13.3 -  Copyright (C) 2009-2019 Canonical Ltd.
+#
+# Hardened profile for netsurf-browser
+
+#include <tunables/home>
+#include <tunables/fonts>
+#include <tunables/mime>
+#include <tunables/lib>
+#include <tunables/gtk>
+
+# Path to the binary netsurf
+
+/usr/bin/netsurf-gtk3 {
+
+   # Allow signal kill
+
+   signal (receive, send) set=("kill"),
+
+   # ipv4 only
+
+   network inet stream,
+   deny network inet6 stream,
+
+   # /dev
+
+   /dev/urandom r,
+   /dev/null r,
+
+   # /etc
+
+   /etc/ssl/*.cnf r,
+
+   @{lib}** rm, # Basic lib
+
+   # /usr/lib
+
+   /usr/lib/libEGL* rm,
+   /usr/lib/libGL* rm,
+   /usr/lib/libX* rm,
+   /usr/lib/libatk* rm,
+   /usr/lib/libbsd* rm,
+   /usr/lib/libc* rm,
+   /usr/lib/libd{rm,om*} rm,
+   /usr/lib/libe{xpat,poxy}* rm,
+   /usr/lib/libf{ribidi,reetype,ontconfig,fi}* rm,
+   /usr/lib/libg{dk,io,lapi,lib,module,object-,raphite2,tk-3,bm}* rm,
+   /usr/lib/libh{ubbub,arfbuzz}* rm,
+   /usr/lib/libn{sbmp,sgif,spsl,sutils,ghttp2}* rm,
+   /usr/lib/libi{cuuc,cudata}* rm,
+   /usr/lib/libjpeg* rm,
+   /usr/lib/libp{ng,ixman,arserutils,ango}* rm,
+   /usr/lib/librosprite* rm,
+   /usr/lib/libs{vgtiny,sl}* rm,
+   /usr/lib/libutf8proc* rm,
+   /usr/lib/libw{ebp,apcaplet}* rm,
+   /usr/lib/libx* rm, 
+   /usr/lib/libzstd* rm,
+
+   @{gtk}** rm, # Gtk lib / modules
+
+   @{mime}** r, # Mime
+   @{fonts}** r, # Fonts
+
+
+   # Basic netsurf cache/config files 
+
+   owner @{HOME}/.Xauthority r,
+
+   owner @{HOME}/.{config,cache}/fontconfig/ r,
+
+   # Urls history and Cookies (read only for private browsing style)
+
+   owner @{HOME}/.config/netsurf/URLs r,
+   owner @{HOME}/.config/netsurf/Cookies r, 
+
+   # Allow only read on Choice file since it handle global configuration value. 
+
+   owner @{HOME}/.config/netsurf/Choices r,
+
+   owner @{HOME}/.cache/** r,
+   owner @{HOME}/.cache/netsurf/** wk,
+
+   # Bookmarked pages
+
+   owner @{HOME}/.config/netsurf/{Hotlist,Hotlist-bk} r,
+
+   owner @{HOME}/.local/share/recently-used.xbel r,
+   #owner owner @{HOME}/Downloads/** rwk, #If you want to allow download from the browser, uncomment this line
+}

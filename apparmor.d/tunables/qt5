@@ -1,0 +1,1 @@
+@{qt5} = /usr/lib/qt5/plugins/** /usr/lib/qt5/plugins/platforms /usr/lib/qt5/plugins/platforms/*.so /usr/lib/*Qt5*.so*

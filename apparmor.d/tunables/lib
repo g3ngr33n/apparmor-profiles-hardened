@@ -1,0 +1,1 @@
+@{lib} = /usr/lib/gcc/x86_64-gentoo-linux-musl/[0-9]*.[0-9]*.[0-9]*/{libgcc_s,libstdc++}.so* /lib/{libaio,libblkid,libbz2,libmount,libncursesw,libpam,libpcre,libtinfow,libuuid,libz,libreadline,libtinfo}.so* /etc/ld-musl-*.path

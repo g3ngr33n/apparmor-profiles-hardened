@@ -13,10 +13,6 @@ serious security layer. Common profiles shipped with apparmor are made to work o
 By appling a simple method : The more a profile restrict access and permission of a software (read, write, memory map, link lock, signal...)
 the less it become possible to exploit bugs/vulnerability to gain access / privilege to the system. 
 
-Let's take the example of a common browser, such as Firefox, a great number of functions / options offered are unknown
-or not useful for the usage you have of it. If disk space, processor or memory wasted by those aren't a major concern, 
-weaken in a best case the security of the system to the total exposure of it is a parameters to be aware of.
-
 Apparmor give you a the control of what the software can and cannot do beyond his own functionality : it
 doesn't fix vulnerability but can prevent them to work.
 

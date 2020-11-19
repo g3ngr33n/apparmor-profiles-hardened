@@ -1,31 +1,19 @@
-# Apparmor 2.13.2 -  Copyright (C) 2009-2018 Canonical Ltd.
+# Apparmor 3.0.0 Copyright (C) 2009-2020 Canonical Ltd.
 #
 # Hardened profile for keepassx
 
-#include <tunables/global>
+#include <tunables/home>
+#include <tunables/fonts>
+#include <tunables/lib>
+#include <tunables/qt5>
 
 # Path to the binary
 /usr/bin/keepassx {
 
-  # Basic deny
-
-   deny /usr/** w,
-   deny /etc/** w,
-   deny /opt/** rw,
-   deny /boot/** rw,
-   deny /root/** rw,
-   deny /sys/** rw,
-
-   # Deny network access
+   # Enforce deny network access
 
    deny network,
    deny network raw,
-
-   # /etc
-
-   /etc/ld-musl-x86_64.path r,
-   /etc/fonts/fonts.conf r,
-   /etc/fonts/{conf.avail,conf.d}/ r,
 
    # /proc
 
@@ -35,61 +23,37 @@
 
    /dev/urandom r,
 
-   # /lib
-
-   /lib/libz* rm,
-   /lib/libpcre* rm,
-   /lib/libbz2* rm,
-   /lib/libuuid* rm,
+   @{lib}** rm, # Basic lib
 
    # /usr/lib
    /usr/lib/libbsd* rm,
-   /usr/lib/libQt5* rm,
-   /usr/lib/libgcrypt* rm,
-   /usr/lib/libgpg-error* rm,
-   /usr/lib/libGLESv2* rm,
+   /usr/lib/libg{pg,lapi,raphite2,lib-2.0,bm,crypt}* rm,
+   /usr/lib/libG{L,LESv2}* rm,
    /usr/lib/libharfbuzz* rm,
-   /usr/lib/libpcre2* rm,
-   /usr/lib/libdouble-conversion* rm,
-   /usr/lib/libglapi* rm,
+   /usr/lib/libp{ng16,cre2}* rm,
+   /usr/lib/libd{rm,ouble-conversion}* rm,
    /usr/lib/libfreetype* rm,
-   /usr/lib/libgraphite2* rm,
    /usr/lib/libexpat* rm,
-   /usr/lib/libxkb* rm,
-   /usr/lib/libxcb* rm,
+   /usr/lib/libx* rm,
    /usr/lib/libICE* rm,
    /usr/lib/libSM* rm,
    /usr/lib/libX* rm,
+   /usr/lib/libjpeg* rm,
    /usr/lib/libfontconfig* rm,
-   /usr/lib/libglib-2.0* rm,
-   /usr/lib/libpng16* rm,
-   /usr/lib/libGL* rm,
    /usr/lib/libEGL* rm,
-   /usr/lib/libgbm* rm,
-   /usr/lib/libdrm* rm,
-   /usr/lib/libxshmfence* rm,
-   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libgcc_s.so.{[0-9],[0-9].*} rm,
-   /usr/lib/gcc/x86_64-gentoo-linux-musl/{,[0-9].*}/libstdc++.so.{[0-9],[0-9].*} rm,
 
-  # Specific lib for Qt5
 
-   /usr/lib/qt5/** r,
-   /usr/lib/qt5/plugins/{generic,bearer,imageformats,platforminputcontexts,platforms,xcbglintegrations}/*.so m,
+   @{qt5}** rm, # Qt5 lib / modules
 
-   # /usr/share - Font / Translate and related 
-
-   /usr/share/{mime,icons,fonts,X11,keepassx,themes}/** r,
-
-   # /var
-
-   /var/cache/fontconfig/* r,
+   @{fonts}** r, # Fonts
 
    # Basic user files 
    
    owner @{HOME}/.Xauthority r,
    
-   # Specific rules for keepassx
+   # Specific for keepassx
 
+   /usr/share/keepassx/** r,
    owner @{HOME}/.config/#{,0-9}* rwkl,
    owner @{HOME}/.config/QtProject.{conf,conf.lock,conf.*} rwkl,
    owner @{HOME}/.config/keepassx/* rwkl,
