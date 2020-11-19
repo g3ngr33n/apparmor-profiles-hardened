@@ -7,7 +7,7 @@ Graphical client for spice-gtk, the profile was written for spice-gtk-0.35 with 
 
 Full list of patch : https://github.com/g3ngr33n/emergeless/tree/master/net-misc/spice-gtk/files
 
-# Short story for spice-gtk:
+### Short story for spice-gtk:
 
 Starting from spice-gtk-0.36, the gnome team sponsored gstreamer became mandatory removing all other video decoder / image compression (mjpeg...). Some time later the automatic resize of the window was changed to work only for gnome-shell (https://bugzilla.xfce.org/show_bug.cgi?id=15897). 
 
