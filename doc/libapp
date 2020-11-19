@@ -1,5 +1,0 @@
-Instead of giving full permission /lib/** | /usr/lib/** : To get the library list for the app that require permission :
- 
-lsof -p {PID} -a -d mem | sed 's/.* //' | sort
-
-Replace {PID} by the process id of the app.
