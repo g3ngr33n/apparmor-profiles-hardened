@@ -19,6 +19,6 @@ Work in progress
 
 ## bin.rm
 
-Common apparmor profile are denying everything unless you explicitly give him permission. 
+Common apparmor profile are denying everything unless you explicitly give it permission. 
 
-Since apparmor 3, you can now write a profile doing the reverse, everything is allowed unless you explicitly deny him permission, I made a fast example with bin.rm 
+Since apparmor 3, you can now write a profile doing the reverse, everything is allowed unless you explicitly deny it permission, I made a fast example with bin.rm 
